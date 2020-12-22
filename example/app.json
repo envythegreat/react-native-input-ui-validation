@@ -1,0 +1,22 @@
+{
+  "name": "react-native-input-ui-validation-example",
+  "displayName": "InputUiValidation Example",
+  "expo": {
+    "name": "react-native-input-ui-validation-example",
+    "slug": "react-native-input-ui-validation-example",
+    "description": "Example app for react-native-input-ui-validation",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
