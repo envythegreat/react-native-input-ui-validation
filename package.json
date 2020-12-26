@@ -149,5 +149,8 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "react-native-masked-text": "^1.13.0"
   }
 }
