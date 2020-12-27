@@ -9,11 +9,11 @@ interface TextInputProps{
   iconName: string;
   placeholder: string;
   keyBoardType: "default" | "email-address" | "numeric" | "phone-pad" | "number-pad" | "decimal-pad" | "visible-password" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | undefined;
-  isPassword: boolean;
-  multiline: boolean;
-  numberofLines: number;
-  isMasked: boolean;
-  maskFormat: string;
+  isPassword?: boolean;
+  multiline?: boolean;
+  numberofLines?: number;
+  isMasked?: boolean;
+  maskFormat?: string;
   handleState: (value: String) => void;
   refs: string;
 }
