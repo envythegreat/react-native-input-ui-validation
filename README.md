@@ -10,12 +10,17 @@ npm install react-native-input-ui-validation
 
 ## Usage
 
-```js
-import InputUiValidation from "react-native-input-ui-validation";
+```tsx
+import TextInput from "react-native-input-ui-validation";
 
 // ...
+const [result, setResult] = React.useState();
+const getResult = (e: any) =>{
+  setResult(e)
+}
+// ...
 
-const result = await InputUiValidation.multiply(3, 7);
+<TextInput iconName="mail" placeholder="Email" refs="Email" handleState={getResult} keyBoardType="email-address"/>
 ```
 
 ## Contributing
