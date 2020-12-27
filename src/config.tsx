@@ -114,6 +114,7 @@ export function validate(data: string, ref: string) {
     }
     case 'CreditCard':{
       const myCard = checkCreditCard(data)
+      //@ts-ignore
       return {isValid: myCard.validCard, error: regex.creditCard[myCard.errorNumber]}
     }
   }
