@@ -8,37 +8,110 @@ const {width,height} =  Dimensions.get('window')
 interface TextInputProps{
   iconName: string;
   placeholder: string;
-  keyBoardType: string;
+  keyBoardType: "default" | "email-address" | "numeric" | "phone-pad" | "number-pad" | "decimal-pad" | "visible-password" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | undefined;
   isPassword: boolean;
   multiline: boolean;
   numberofLines: number;
   isMasked: boolean;
   maskFormat: string;
   handleState: (value: String) => void;
-  refs: String;
+  refs: string;
 }
 
 const TextInput: React.FC<TextInputProps> = (
-  // {
-  //   iconName ,
-  //   placeholder,
-  //   keyBoardType,
-  //   isPassword,
-  //   multiline,
-  //   numberofLines,
-  //   isMasked,
-  //   maskFormat,
-  //   handleState,
-  //   refs
-  // }
+  {
+    iconName ,
+    placeholder,
+    keyBoardType,
+    isPassword,
+    multiline,
+    numberofLines,
+    isMasked,
+    maskFormat,
+    handleState,
+    refs
+  }
 ) =>{
 
   const [inputValue, setInputValue] = useState('');
   const [checkOrX, setCheckOrX] = useState(null);
   const [isError, setIsError] = useState(null);
 
-  return (
-    <></>
+  async function handleChange(e: any){
+    setInputValue(await e);
+    let myInputValue = validate(e, refs)
+    handleState(await e)
+    //@ts-ignore
+    setCheckOrX(myInputValue.isValid);
+    //@ts-ignore
+    setIsError(myInputValue.error);
+  }
+
+  const colors = checkOrX === null
+  ? ValidateColors.Default
+  : checkOrX
+        ? ValidateColors.Valid
+        : ValidateColors.Invalid
+
+  return(
+    <>
+      <View style={[multiline ? styles.textAreaContainer : styles.container , {borderColor: colors}]}>
+       {  !multiline
+            ? (
+              <View style={{padding: 5,paddingLeft: 13}}>
+                <Icon name={iconName}  style={styles.iconSy} size={18} color={colors} />
+              </View>
+            )
+            : null
+      }
+      {
+        isMasked
+          ?
+            <TextInputMask
+              type={'custom'}
+              options={{
+                mask: maskFormat
+              }}
+              underlineColorAndroid="transparent"
+              placeholder={placeholder}
+              style={{flex:1,height:35,color: 'rgba(0,0,0, 0.5)'}}
+              value={inputValue}
+              onChangeText={(e) => handleChange(e)}
+              keyboardType={keyBoardType}
+            />
+          : 
+            <Input 
+                underlineColorAndroid="transparent"
+                placeholder={placeholder}
+                style={multiline ? styles.textArea : {color: 'rgba(0,0,0, 0.5)',height:35,flex:1}}
+                value={inputValue}
+                onChangeText={(e) => handleChange(e)}
+                keyboardType={keyBoardType}
+                secureTextEntry={isPassword}
+                {...{multiline}}
+                numberOfLines={multiline ? numberofLines : 1}
+              />
+      }
+      
+
+      { !multiline
+          ? checkOrX === null
+              ? null
+              : checkOrX ?
+                (
+                  <View style={{padding: 5,paddingHorizontal: 10}}>
+                    <Icon name="check-circle"  style={styles.iconSy} size={18} color={colors} />
+                  </View>
+                ) : (
+                  <View style={{padding: 5,paddingHorizontal: 10}}>
+                    <Icon name="alert-circle"  style={styles.iconSy} size={18} color={colors} />
+                  </View>
+                )
+          :null
+        }
+    </View>
+    {isError ? <View style={styles.myerr}><Text style={styles.errorTxt}>{isError}</Text></View> : null}
+    </>
   );
 }
 
@@ -78,7 +151,10 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
     // flex:1,
     color: 'rgba(0,0,0, 0.5)',
-  }
+  },
+  iconSy:{}
 });
 
 export default TextInput;
+
+
