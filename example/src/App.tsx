@@ -28,6 +28,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       <TextInput iconName="mail" placeholder="Email" refs="Email" handleState={getResult} keyBoardType="email-address"/>
+      <TextInput iconName="lock" placeholder="Password" refs="Password" handleState={getResult} keyBoardType="default" isPassword />
+      <TextInput iconName="credit-card" placeholder="Credit card" refs="CreditCard" handleState={getResult} keyBoardType="phone-pad"/>
+      <TextInput iconName="calendar" placeholder="Birthday (DD/MM/YYYY)" refs="Birthday" handleState={getResult} keyBoardType="default"/>
+      <TextInput iconName="map-pin" placeholder="Address" refs="Address" handleState={getResult} keyBoardType="default"/>
+      <TextInput iconName="mail" placeholder="TextArea" refs="TextArea" handleState={getResult} keyBoardType="default" multiline numberofLines={4} />
       <Button title="check" onPress={createTwoButtonAlert}/>
     </View>
   );
