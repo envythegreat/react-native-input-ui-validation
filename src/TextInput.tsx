@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import { View, Text, TextInput as Input, Dimensions, StyleSheet } from 'react-native';
 import {validate, ValidateColors} from './config'
 import {Feather as Icon} from "@expo/vector-icons"
-import { TextInputMask } from 'react-native-masked-text'
 const {width,height} =  Dimensions.get('window')
 
 interface TextInputProps{
@@ -13,7 +12,7 @@ interface TextInputProps{
   multiline?: boolean;
   numberofLines?: number;
   isMasked?: boolean;
-  maskFormat?: string;
+  // maskFormat?: string;
   handleState: (value: String) => void;
   refs: string;
 }
@@ -27,7 +26,7 @@ const TextInput: React.FC<TextInputProps> = (
     multiline,
     numberofLines,
     isMasked,
-    maskFormat,
+    // maskFormat,
     handleState,
     refs
   }
@@ -37,10 +36,10 @@ const TextInput: React.FC<TextInputProps> = (
   const [checkOrX, setCheckOrX] = useState(null);
   const [isError, setIsError] = useState(null);
 
-  async function handleChange(e: any){
-    setInputValue(await e);
+  function handleChange(e: string){
+    setInputValue(e);
     let myInputValue = validate(e, refs)
-    handleState(await e)
+    handleState(inputValue)
     //@ts-ignore
     setCheckOrX(myInputValue.isValid);
     //@ts-ignore
@@ -67,18 +66,19 @@ const TextInput: React.FC<TextInputProps> = (
       {
         isMasked
           ?
-            <TextInputMask
-              type={'custom'}
-              options={{
-                mask: maskFormat
-              }}
-              underlineColorAndroid="transparent"
-              placeholder={placeholder}
-              style={{flex:1,height:35,color: 'rgba(0,0,0, 0.5)'}}
-              value={inputValue}
-              onChangeText={(e) => handleChange(e)}
-              keyboardType={keyBoardType}
-            />
+            // <TextInputMask
+            //   type={'custom'}
+            //   options={{
+            //     mask: maskFormat
+            //   }}
+            //   underlineColorAndroid="transparent"
+            //   placeholder={placeholder}
+            //   style={{flex:1,height:35,color: 'rgba(0,0,0, 0.5)'}}
+            //   value={inputValue}
+            //   onChangeText={(e) => handleChange(e)}
+            //   keyboardType={keyBoardType}
+            // />
+            <Text>Hello</Text>
           : 
             <Input 
                 underlineColorAndroid="transparent"
