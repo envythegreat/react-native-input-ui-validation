@@ -36,10 +36,10 @@ const TextInput: React.FC<TextInputProps> = (
   const [checkOrX, setCheckOrX] = useState(null);
   const [isError, setIsError] = useState(null);
 
-  function handleChange(e: string){
-    setInputValue(e);
+  async function handleChange(e: string){
+    setInputValue(await e);
     let myInputValue = validate(e, refs)
-    handleState(inputValue)
+    handleState(await e)
     //@ts-ignore
     setCheckOrX(myInputValue.isValid);
     //@ts-ignore

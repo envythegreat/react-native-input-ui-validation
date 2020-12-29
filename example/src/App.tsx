@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Button, Alert} from 'react-native';
-import TextInput from 'react-native-input-ui-validation';
+import {TextInput} from 'react-native-input-ui-validation';
 
 
 export default function App() {
