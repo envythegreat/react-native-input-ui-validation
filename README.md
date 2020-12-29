@@ -10,7 +10,7 @@ package to handle ui and validation for TextInput
 npm install react-native-input-ui-validation
 ```
 
-## Usage
+## How to use
 
 ```js
 import TextInput from "react-native-input-ui-validation";
@@ -22,12 +22,41 @@ const getResult = (e: any) =>{
 }
 // simple how to use the component
 
+// Email
 <TextInput 
     iconName="mail"
     placeholder="Email"
     refs="Email"
     handleState={getResult}
     keyBoardType="email-address"
+  />
+
+// Password
+<TextInput 
+    iconName="lock"
+    placeholder="Password"
+    refs="Password"
+    handleState={getResult}
+    keyBoardType="default"
+    isPassword
+  />
+
+//Birthday
+<TextInput 
+    iconName="calendar"
+    placeholder="Birthday format(DD/MM/YYYY)"
+    refs="Birthday"
+    handleState={getResult}
+    keyBoardType="default"
+  />
+
+// Credit Card
+<TextInput 
+    iconName="credit-card"
+    placeholder="CreditCard"
+    refs="CreditCard"
+    handleState={getResult}
+    keyBoardType="number-pad"
   />
 ```
 
