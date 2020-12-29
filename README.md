@@ -1,3 +1,5 @@
+## this package is on process of building
+
 # react-native-input-ui-validation
 
 package to handle ui and validation for TextInput
