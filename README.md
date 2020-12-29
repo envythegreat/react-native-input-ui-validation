@@ -61,7 +61,7 @@ const getResult = (e: any) =>{
 ```
 
 
-## Options
+## Options / TextInput Props
 
 | Prop Name | required/no | type | description |
 | --- | --- | --- | --- |
@@ -74,9 +74,9 @@ const getResult = (e: any) =>{
 | refs | required | string | we need this prop to give a info to validation script in order to validate data inside the input |
 
 ## accepted inputs types
-the refs props accept only the following types for the meantime we may add more : 
+the refs prop accept only the following types for the meantime we may add more later : 
 
-- refs : '"Email" | "Password" | "Username" | "FullName" | "Address" | "Birthday" | "Url" | "TextArea" | "CreditCard"'
+- refs : `"Email" | "Password" | "Username" | "FullName" | "Address" | "Birthday" | "Url" | "TextArea" | "CreditCard"`
 
 
 
@@ -84,7 +84,6 @@ the refs props accept only the following types for the meantime we may add more 
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
-## TextInput Props
 
 ## License
 
