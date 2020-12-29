@@ -74,9 +74,9 @@ const getResult = (e: any) =>{
 | refs | required | string | we need this prop to give a info to validation script in order to validate data inside the input |
 
 ## accepted inputs types
-the refs props accept only the following types for the meantime we may add more
+the refs props accept only the following types for the meantime we may add more : 
 
-refs : "Email" | "Password" | "Username" | "FullName" | "Address" | "Birthday" | "Url" | "TextArea" | "CreditCard"
+- refs : '"Email" | "Password" | "Username" | "FullName" | "Address" | "Birthday" | "Url" | "TextArea" | "CreditCard"'
 
 
 
