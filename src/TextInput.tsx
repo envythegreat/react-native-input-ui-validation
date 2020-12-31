@@ -5,7 +5,8 @@ import {Feather as Icon} from "@expo/vector-icons"
 const {width,height} =  Dimensions.get('window')
 
 interface TextInputProps{
-  iconName: string;
+  // we don't use icon name only when we are trying to use TextArea
+  iconName?: string;
   placeholder: string;
   keyBoardType: "default" | "email-address" | "numeric" | "phone-pad" | "number-pad" | "decimal-pad" | "visible-password" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | undefined;
   isPassword?: boolean;

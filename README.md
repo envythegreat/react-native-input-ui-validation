@@ -60,7 +60,15 @@ const getResult = (e: any) =>{
   />
 
   // TextArea
-  <TextInput iconName="check" placeholder="TextArea" refs="TextArea" handleState={getResult} keyBoardType="default" multiline numberofLines={4} />
+  <TextInput 
+      iconName="check" 
+      placeholder="TextArea" 
+      refs="TextArea"
+      handleState={getResult}
+      keyBoardType="default"
+      multiline
+      numberofLines={4}
+    />
   
 ```
 
