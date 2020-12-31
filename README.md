@@ -13,7 +13,7 @@ npm install react-native-input-ui-validation
 ## How to use
 
 ```js
-import TextInput from "react-native-input-ui-validation";
+import {TextInput} from "react-native-input-ui-validation";
 
 // get the value of TextInput
 const [result, setResult] = React.useState();
@@ -58,6 +58,10 @@ const getResult = (e: any) =>{
     handleState={getResult}
     keyBoardType="number-pad"
   />
+
+  // TextArea
+  <TextInput iconName="check" placeholder="TextArea" refs="TextArea" handleState={getResult} keyBoardType="default" multiline numberofLines={4} />
+  
 ```
 
 
